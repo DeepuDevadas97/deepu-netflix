@@ -23,8 +23,16 @@ import { Swiper as SwiperType } from "swiper";
 const API_KEY = "88e2f94415a2e12bd04570b917a425b5";
 const BASE_URL = "https://api.themoviedb.org/3";
 
+
+type Movie = {
+  id: number;
+  title: string;
+  backdrop_path: string;
+};
+
+
 const SliderMain = () => {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState<Movie[]>([]);
   const [activePopoverIndex, setActivePopoverIndex] = useState(null);
 
   const prevRef = useRef(null);
