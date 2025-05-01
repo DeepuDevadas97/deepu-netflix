@@ -134,8 +134,10 @@ const SliderMain = () => {
             //   swiper.params.pagination.el = paginationRef.current;
             // }}
             onBeforeInit={(swiper) => {
-              if (swiper.params.pagination) {
-                swiper.params.pagination.el = paginationRef.current;
+              const pagination = swiper.params.pagination;
+            
+              if (pagination && typeof pagination !== "boolean") {
+                pagination.el = paginationRef.current;
               }
             }}
             breakpoints={{
