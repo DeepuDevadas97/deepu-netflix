@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 const PlayVideo = () => {
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
