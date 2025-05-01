@@ -67,7 +67,7 @@ const SliderMain = () => {
   const [visibleVideoIndex, setVisibleVideoIndex] = useState(null);
 
   useEffect(() => {
-    let timeout;
+    let timeout: ReturnType<typeof setTimeout>;
     if (activePopoverIndex !== null) {
       timeout = setTimeout(() => {
         setVisibleVideoIndex(activePopoverIndex);
