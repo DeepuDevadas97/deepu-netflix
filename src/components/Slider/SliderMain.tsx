@@ -18,7 +18,7 @@ import ThumbIcon from "../../../public/icons/ThumbIcon";
 import DownIcon from "../../../public/icons/DownIcon";
 import PlayVideo from "../VideoPlay/PlayVideo";
 import PublishBadge from "../PublishBadge/PublishBadge";
-import { Swiper as SwiperType } from 'swiper'; 
+import { Swiper as SwiperType } from "swiper";
 
 const API_KEY = "88e2f94415a2e12bd04570b917a425b5";
 const BASE_URL = "https://api.themoviedb.org/3";
@@ -130,8 +130,13 @@ const SliderMain = () => {
               el: paginationRef.current,
               clickable: true,
             }}
+            // onBeforeInit={(swiper) => {
+            //   swiper.params.pagination.el = paginationRef.current;
+            // }}
             onBeforeInit={(swiper) => {
-              swiper.params.pagination.el = paginationRef.current;
+              if (swiper.params.pagination) {
+                swiper.params.pagination.el = paginationRef.current;
+              }
             }}
             breakpoints={{
               320: {
@@ -163,7 +168,6 @@ const SliderMain = () => {
                 onMouseEnter={() => setActivePopoverIndex(i)}
                 onMouseLeave={() => setActivePopoverIndex(null)}
               >
-               
                 <Image
                   src={`https://image.tmdb.org/t/p/w300${movie.backdrop_path}`}
                   alt={movie.title}
@@ -175,10 +179,9 @@ const SliderMain = () => {
                   <NetflixIcon />
                 </div>
                 <div className="absolute bottom-0">
-                  <PublishBadge/>
+                  <PublishBadge />
                 </div>
 
-               
                 <div
                   id="popover-description"
                   role="tooltip"
