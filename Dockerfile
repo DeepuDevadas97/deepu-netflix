@@ -1,22 +1,22 @@
-# Use Node.js as the base image
-FROM node:18.17.0-alpine
+# Use a compatible Node.js version for Next.js 15
+FROM node:18.18.0-alpine
 
-# Set the working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Copy package.json and yarn.lock to the container
+# Copy package files
 COPY package.json package-lock.json ./
 
 # Install dependencies
-RUN npm install --frozen-lockfile
+RUN npm ci
 
-# Copy the app's source code to the container
+# Copy the rest of the app source
 COPY . .
 
-# Build the Next app
+# Build the app
 RUN npm run build
 
-# Expose the port (default for Next.js)
+# Expose the default port
 EXPOSE 3000
 
 # Start the app
