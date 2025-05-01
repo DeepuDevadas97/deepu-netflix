@@ -33,7 +33,8 @@ type Movie = {
 
 const SliderMain = () => {
   const [movies, setMovies] = useState<Movie[]>([]);
-  const [activePopoverIndex, setActivePopoverIndex] = useState(null);
+  const [activePopoverIndex, setActivePopoverIndex] = useState<number | null>(null);
+
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -72,7 +73,7 @@ const SliderMain = () => {
     }
   };
 
-  const [visibleVideoIndex, setVisibleVideoIndex] = useState(null);
+  const [visibleVideoIndex, setVisibleVideoIndex] = useState<number | null>(null);
 
   useEffect(() => {
     let timeout: ReturnType<typeof setTimeout>;
