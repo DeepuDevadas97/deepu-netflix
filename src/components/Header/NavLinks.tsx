@@ -11,7 +11,6 @@ const navItems = [
   { label: "New & Popular", href: "#" },
   { label: "My List", href: "#" },
   { label: "Browse by Languages", href: "#" },
-  { label: "Movies", href: "#" },
 ];
 
 const NavLinks = () => {
